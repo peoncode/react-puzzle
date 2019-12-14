@@ -1,13 +1,6 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
+  background-color: #2B2525; 
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -17,6 +10,63 @@
   color: white;
 }
 
-.App-link {
-  color: #09d3ac;
+.button-bar {
+  padding-bottom: 60px;
+}
+
+.start-button {
+  margin: 0 15px 0 15px;
+  height: 40px;
+  width: 100px;
+  font-weight: 700;
+  cursor: pointer;
+  color:  #fd6883;
+  background-color: #372F2F;
+  outline: none;
+  font-size: 15px;
+  border-radius: 10px;
+}
+
+.win-button {
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  background: center / 150% no-repeat url("react-icon.svg");
+}
+
+.win-true {
+  visibility: visible;
+  color: #fd6883;
+}
+
+.win-false {
+  visibility: hidden;
+}
+
+.square {
+  background-color: #372F2F;
+  border: 6px solid slategray;
+  position: relative;
+}
+
+.Tile {
+  cursor: pointer;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  width: 100px;
+  height: 100px;
+  box-shadow:inset 0px 0px 0px 3px white;
+  font-size: calc(30px + 2vmin);
+  font-weight: 700;
+  border-radius: 10px;
+  outline: none;
+  background-color: #F9CC6B; 
+  /* rgb(100, 0, 255); */
 }
