@@ -13,7 +13,7 @@ export class Tile extends Component {
 
   render() {
     let className;
-    let location = LOCATION_LIST[parseInt(this.props.loc)];
+    let location = this.props.loc;
     let label = this.props.id;
     if (this.props.id === "win") {
       label = "";
@@ -23,7 +23,7 @@ export class Tile extends Component {
     }
     
     return (
-      <button className={className} style={location} tid={this.props.id} loc={this.props.loc} onClick={this.handleClick}>
+      <button className={className} style={location} tid={this.props.tId} onClick={this.handleClick}>
         {label}
       </button>
     );
