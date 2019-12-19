@@ -69,8 +69,8 @@ export class Board extends Component {
       return <Tile tId={id} id={this.props.data.tiles[id]} key={"t"+id+"_"+this.props.data.size} loc={this.props.data.loc[id]} moveTile={this.moveTile} />
     });
     const boardSize = {
-      height: this.props.data.size*150,
-      width: this.props.data.size*150,
+      height: this.props.data.size*125,
+      width: this.props.data.size*125,
     };
 
     return (

@@ -23,22 +23,18 @@ class App extends Component {
 
   handleTileMove(newTilesState) {
     const max = this.state.size * this.state.size;
-    // for(let i=1; i < max; i++) {
-    //   if (newTilesState[i] !== String(i)) {
-    //     this.setState({"tiles": newTilesState});
-    //     return;
-    //   }
-    // }
-    if (newTilesState[9] === "9") {
-
+    const newCount = this.state.count+1;
+    for(let i=1; i < max; i++) {
+      if (newTilesState[i] !== String(i)) {
+        this.setState({"tiles": newTilesState, "count": newCount, "message": `Moves: ${newCount}`});
+        return;
+      }
+    }
     newTilesState[max] = "win";
-    this.setState({"win": "true", "tiles": newTilesState});
-
-    }else {this.setState({"tiles": newTilesState});}
+    this.setState({"win": "true", "message": `You did it in ${newCount} moves!`, "tiles": newTilesState});
   }
 
   render() {
-    const winner = "win-" + this.state.win;
     return (
       <div className="App">
         <div className="button-bar">
@@ -47,7 +43,7 @@ class App extends Component {
           <StartButton text="LARGE" onSize={this.newGame} size="5"/>
         </div>
         <Board onMoveTile={this.handleTileMove} data={this.state}/>
-        <h1 className={winner}>You did it!</h1>
+        <h2 className="counter">{this.state.message}</h2>
       </div>
     );
   }
@@ -63,13 +59,13 @@ function initApp() {
 function initLocations(size) {
   const max = size * size;
   let arr = [];
-  BLANKS_MAP[String(size)] = [];
+  BLANKS_MAP[String(size)] = [null];
   for (let i=1; i<=max; i++) {
     const row = Math.ceil(i/size);
     const col = i - ((row-1) * size);
     arr.push({
-      top: (row-1) * 150,
-      left: (col-1) * 150
+      top: (row-1) * 125,
+      left: (col-1) * 125
     });
     BLANKS_MAP[String(size)].push(String(i));
   }
@@ -79,21 +75,64 @@ function initLocations(size) {
 
 function resetStates(size) {
   const max = size * size;
-  let state = {"win": "false", "size": size, "loc": LOCATION_MAP[String(size)], "tiles": {}};
-  let arr = BLANKS_MAP[size];
+  let state = {
+    "win": "false",
+    "count": 0,
+    "message": `Moves: 0`,
+    "size": size,
+    "loc": LOCATION_MAP[String(size)],
+    "tiles": {}
+  };
+  let arr = BLANKS_MAP[size].slice();
   shuffleTiles(arr);
   
   for (let i=1; i<=max; i++) {
-    state.tiles[i] = arr[i-1];
+    state.tiles[i] = arr[i];
   }
 
   return state;
 }
 
 function shuffleTiles(a) {
-  for (let i = a.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [a[i], a[j]] = [a[j], a[i]];
+  const max = a.length-1;
+  let current = max;
+  let count = 0;
+  const maxCount = Math.floor(Math.random() * 25) + 70;
+  while (count++ < maxCount) {
+    let availSpaces = getAvailableSpaces(current, a);
+    let i = Math.floor(Math.random()*availSpaces.length);
+    let swapIdx = Number(availSpaces[i]);
+    [a[swapIdx], a[current]] = [a[current], a[swapIdx]];
+    current = swapIdx;
   }
+
+  console.log(`shuffled ${maxCount} times --> `,a);
   return a;
+}
+
+function getAvailableSpaces(n, arr) {
+  const size = Math.sqrt(arr.length-1);
+  const max = ""+(arr.length-1);
+  const row = Math.ceil(n/size);
+  const col = n - ((row-1) * size);
+  let retArr = [];
+
+  const up = row > 1 ? n-size : 0;
+  if (up) {
+    retArr.push(up);
+  }
+  const down = row < size ? n+size : 0;
+  if (down) {
+    retArr.push(down);
+  }
+  const left = col > 1 ? n-1 : 0;
+  if (left) {
+    retArr.push(left);
+  }
+  const right = col < size ? n+1 : 0;
+  if (right) {
+    retArr.push(right);
+  }
+
+  return retArr;
 }

@@ -6,13 +6,15 @@
   align-items: center;
   justify-content: center;
   color: white;
-  width: 150px;
-  height: 150px;
+  width: 125px;
+  height: 125px;
   box-shadow:inset 0px 0px 0px 3px white;
-  font-size: calc(30px + 2vmin);
+  font-size: calc(46px + 2vmin);
   font-weight: 700;
   border-radius: 10px;
   outline: none;
-  background-color: #F9CC6B; 
+  background-color: #F9CC6B;
+  /* rgb(168, 169 ,235); */
+   /* #F9CC6B;  */
   /* rgb(100, 0, 255); */
 }
