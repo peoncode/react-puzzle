@@ -6,7 +6,7 @@ export class Splash extends Component {
     return (
       <div className="intro">
         <div>{this.props.title}</div>
-        <div className="intro2">A ReactJs App</div>
+        <div className="intro2">A <a href="http://reactjs.org" className="react" target="_blank">ReactJs</a> App</div>
       </div>
     );
   }
