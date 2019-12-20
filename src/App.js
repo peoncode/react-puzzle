@@ -120,7 +120,7 @@ function shuffleTiles(a) {
   const max = a.length-1;
   let current = max;
   let count = 0;
-  const maxCount = Math.floor(Math.random() * 25) + 70;
+  const maxCount = Math.floor(Math.random() * 25) + Math.pow(4, Math.sqrt(max));
   while (count++ < maxCount) {
     let availSpaces = getAvailableSpaces(current, a);
     let i = Math.floor(Math.random()*availSpaces.length);

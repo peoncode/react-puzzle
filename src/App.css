@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: #2B2525; 
+  background-color: #2C2525; 
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -21,7 +21,7 @@
   width: 120px;
   font-weight: 700;
   cursor: pointer;
-  color:  #fd6883;
+  color:  #FD6883;
   background-color: #372F2F;
   outline: none;
   font-size: 20px;
@@ -39,7 +39,7 @@
 }
 
 .counter {
-  color: #fd6883;
+  color: #FD6883;
 }
 
 .credit {
