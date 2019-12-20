@@ -5,6 +5,7 @@ import './App.css';
 
 let LOCATION_MAP = {};
 let BLANKS_MAP = {};
+const BUTTON_SIZE = 100;
 
 class App extends Component {
   constructor (props) {
@@ -59,9 +60,9 @@ class App extends Component {
     return (
       <div className="App">
         <div className="button-bar">
-          <StartButton text="SMALL" onSize={this.newGame} size="3"/>
-          <StartButton text="MEDIUM" onSize={this.newGame} size="4"/>
-          <StartButton text="LARGE" onSize={this.newGame} size="5"/>
+          <StartButton text="3x3" onSize={this.newGame} size="3"/>
+          <StartButton text="4x4" onSize={this.newGame} size="4"/>
+          <StartButton text="5x5" onSize={this.newGame} size="5"/>
         </div>
         <Board onMoveTile={this.handleTileMove} data={this.state}/>
         <h2 className="counter">{this.state.message}</h2>
@@ -86,8 +87,8 @@ function initLocations(size) {
     const row = Math.ceil(i/size);
     const col = i - ((row-1) * size);
     arr.push({
-      top: (row-1) * 125,
-      left: (col-1) * 125
+      top: (row-1) * BUTTON_SIZE,
+      left: (col-1) * BUTTON_SIZE
     });
     BLANKS_MAP[String(size)].push(String(i));
   }

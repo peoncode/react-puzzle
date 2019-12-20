@@ -1,17 +1,17 @@
 .square {
-  height: 375px;
-  width: 375px;
+  height: 300px;
+  width: 300px;
   background-color: #2C2525;
   border: 10px solid #948A8B;
   position: relative;
 }
 
 .intro {
-  height: 250px;
-  width: 250px;
+  height: 200px;
+  width: 200px;
   position: absolute;
-  top: 125px;
-  left: 125px;
+  top: 100px;
+  left: 100px;
   font-weight: 600;
   font-family: monospace;
   display: flex;

@@ -3,6 +3,8 @@ import { Tile } from './Tile';
 import { Splash } from './Splash';
 import './Board.css';
 
+const BUTTON_SIZE = 100;
+
 export class Board extends Component {
   constructor(props) {
     super(props);
@@ -70,8 +72,8 @@ export class Board extends Component {
       return <Tile tId={id} id={this.props.data.tiles[id]} key={"t"+id+"_"+this.props.data.size} loc={this.props.data.loc[id]} moveTile={this.moveTile} />
     });
     const boardSize = {
-      height: this.props.data.size*125,
-      width: this.props.data.size*125,
+      height: this.props.data.size*BUTTON_SIZE,
+      width: this.props.data.size*BUTTON_SIZE,
     };
 
     return (
