@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Tile } from './Tile';
+import { Splash } from './Splash';
 import './Board.css';
 
 export class Board extends Component {
@@ -76,6 +77,7 @@ export class Board extends Component {
     return (
       <div className="square" style={boardSize}>
         {components}
+        {this.props.data.intro && (<Splash title="Number Slider" />)}
       </div>
     );
   }

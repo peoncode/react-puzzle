@@ -8,6 +8,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  user-select: none;
 }
 
 .button-bar {
@@ -41,3 +42,9 @@
   color: #fd6883;
 }
 
+.credit {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  font-size: 11px;
+}

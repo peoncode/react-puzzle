@@ -11,7 +11,22 @@ class App extends Component {
     super(props);
     initApp();
 
-    this.state = resetStates(3);
+    this.state = {
+      "intro": true,
+      "win": "true",
+      "count": 0,
+      "message": `Select a puzzle size to start`,
+      "size": 4,
+      "loc": LOCATION_MAP[String(4)],
+      "tiles": {
+        1: "1",
+        2: "3",
+        5: "2",
+        12: "14",
+        15: "8",
+        16: "win"
+      }
+    }
     this.newGame = this.newGame.bind(this);
     this.handleTileMove = this.handleTileMove.bind(this);
   }
@@ -44,6 +59,7 @@ class App extends Component {
         </div>
         <Board onMoveTile={this.handleTileMove} data={this.state}/>
         <h2 className="counter">{this.state.message}</h2>
+        <div className="credit">Kevin Dang (Dec 2019)</div>
       </div>
     );
   }
@@ -77,6 +93,7 @@ function resetStates(size) {
   const max = size * size;
   let state = {
     "win": "false",
+    "intro": false,
     "count": 0,
     "message": `Moves: 0`,
     "size": size,

@@ -5,3 +5,22 @@
   border: 10px solid slategray;
   position: relative;
 }
+
+.intro {
+  height: 250px;
+  width: 250px;
+  position: absolute;
+  top: 125px;
+  left: 125px;
+  font-weight: 600;
+  font-family: monospace;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 30px;
+}
+
+.intro2 {
+  font-size: 20px;
+  margin-top: 60px;
+}
