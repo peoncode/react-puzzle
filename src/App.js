@@ -65,7 +65,7 @@ class App extends Component {
         </div>
         <Board onMoveTile={this.handleTileMove} data={this.state}/>
         <h2 className="counter">{this.state.message}</h2>
-        <div className="credit">Kevin Dang (Dec 2019)</div>
+        <div className="credit">©Kevin Dang (Dec 2019)</div>
       </div>
     );
   }
@@ -135,7 +135,6 @@ function shuffleTiles(a) {
 
 function getAvailableSpaces(n, arr) {
   const size = Math.sqrt(arr.length-1);
-  const max = ""+(arr.length-1);
   const row = Math.ceil(n/size);
   const col = n - ((row-1) * size);
   let retArr = [];
